@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Identifier</key>
+	<string>local.munki.Airtame</string>
+	<key>Input</key>
+	<dict>
+		<key>DOWNLOAD_URL</key>
+		<string>https://downloads-website.airtame.com/get.php?platform=mac&amp;_ga</string>
+		<key>MUNKI_CATEGORY</key>
+		<string>Software</string>
+		<key>MUNKI_REPO_SUBDIR</key>
+		<string>apps/Airtame</string>
+		<key>NAME</key>
+		<string>Airtame</string>
+		<key>pkginfo</key>
+		<dict>
+			<key>catalogs</key>
+			<array>
+				<string>testing</string>
+			</array>
+			<key>category</key>
+			<string>Conferencing</string>
+			<key>description</key>
+			<string>Airtame is a unified solution that equips organizations with wireless screen sharing.</string>
+			<key>developer</key>
+			<string>Airtame</string>
+			<key>display_name</key>
+			<string>Airtame</string>
+			<key>name</key>
+			<string>%NAME%</string>
+			<key>unattended_install</key>
+			<false/>
+			<key>uninstallable</key>
+			<string>true</string>	
+			<key>RestartAction</key>
+			<string>None</string>
+			<key>icon_name</key>
+			<string>Airtame.png</string>
+			<key>minimum_os_version</key>
+			<string>10.14</string>
+			<key>postinstall_script</key>
+			<string></string>
+		</dict>
+	</dict>
+	<key>ParentRecipe</key>
+	<string>com.github.smithjw.Airtame.munki</string>
+	<key>ParentRecipeTrustInfo</key>
+	<dict>
+		<key>non_core_processors</key>
+		<dict/>
+		<key>parent_recipes</key>
+		<dict>
+			<key>com.github.smithjw.Airtame.munki</key>
+			<dict>
+				<key>git_hash</key>
+				<string>7b4202caf8a95549f117e18cc71abae9756bae54</string>
+				<key>path</key>
+				<string>~/Library/AutoPkg/RecipeRepos/com.github.autopkg.smithjw-recipes/Airtame/Airtame.munki.recipe</string>
+				<key>sha256_hash</key>
+				<string>6b8031ba7ab8d6b52fce2417adc41c13297a1d672b975716bdab2b40efc9b5a7</string>
+			</dict>
+			<key>tecnico1931.download.Airtame</key>
+			<dict>
+				<key>git_hash</key>
+				<string>335c5fce384b57135d26e5eac7fbcb54491f736c</string>
+				<key>path</key>
+				<string>~/Library/AutoPkg/RecipeRepos/com.github.autopkg.Tecnico1931-recipes/Airtame/Airtame.download.recipe</string>
+				<key>sha256_hash</key>
+				<string>f49aec5e208152a000e237482deb40554eb27857d59026e1ba98b2f7c9233173</string>
+			</dict>
+		</dict>
+	</dict>
+</dict>
+</plist>

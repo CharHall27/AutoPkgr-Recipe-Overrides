@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Identifier</key>
+	<string>local.munki.Zoom</string>
+	<key>Input</key>
+	<dict>
+		<key>BUNDLE_ID</key>
+		<string>us.zoom.xos</string>
+		<key>DOWNLOAD_URL</key>
+		<string>https://zoom.us/client/latest/ZoomInstallerIT.pkg</string>
+		<key>MUNKI_REPO_SUBDIR</key>
+		<string>apps/Zoom</string>
+		<key>NAME</key>
+		<string>Zoom</string>
+		<key>USER_AGENT</key>
+		<string>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_3) AppleWebKit/536.28.10 (KHTML, like Gecko) Version/6.0.3 Safari/536.28.10</string>
+		<key>pkginfo</key>
+		<dict>
+			<key>blocking_applications</key>
+			<array>
+				<string>zoom.us</string>
+			</array>
+			<key>catalogs</key>
+			<array>
+				<string>testing</string>
+			</array>
+			<key>category</key>
+			<string>Conferencing</string>
+			<key>description</key>
+			<string>Zoom is the leader in modern enterprise video communications, with an easy, reliable cloud platform for video and audio conferencing, chat, and webinars across mobile, desktop, and room systems.</string>
+			<key>developer</key>
+			<string>Zoom</string>
+			<key>icon_name</key>
+			<string>Zoom.png</string>
+			<key>display_name</key>
+			<string>Zoom</string>
+			<key>RestartAction</key>
+			<string>None</string>
+			<key>minimum_os_version</key>
+			<string>10.14</string>
+			<key>name</key>
+			<string>%NAME%</string>
+			<key>postuninstall_script</key>
+			<string>#!/bin/sh
+			rm -rf /Applications/zoom.us.app
+			</string>
+			<key>unattended_install</key>
+			<false/>
+			<key>uninstallable</key>
+			<true/>
+			<key>preinstall_script</key>
+			<string>#!/bin/bash
+	PLISTCMD=( "Add :nofacebook bool true" "Add :nogoogle bool true" 
+	"Add :ZAutoUpdate bool true" "Add :ZDisableVideo bool true" 
+	"Add :ZAutoJoinVoip bool true" 
+	"Add :ZAutoSSOLogin bool true" "Add :ZSSOHost string SCHOOLssoCODEhere.zoom.us" 
+	"Add :ZUse720PByDefault bool true" "Add :ZRemoteControlAllApp bool true")
+
+	for i in "${PLISTCMD[@]}"
+	do
+	/usr/libexec/PlistBuddy -c "$i" /Library/Managed\ Installs/Cache/us.zoom.config.plist
+	done<string/>
+			<key>postinstall_script</key>
+			<string></string>
+		<key>uninstall_script</key>
+		<string>#!/bin/bash
+
+sudo rm -rf /private/var/db/receipts/us.zoom.pkg.videomeeting.bom
+sudo rm -rf /private/var/db/receipts/us.zoom.pkg.videomeeting.plist
+		</string>
+		<key>preuninstall_script</key>
+		#!/bin/bash
+
+sudo rm -rf /Applications/zoom.us.app
+
+sudo rm -rf ~/Library/Preferences/us.zoom.xos.plist
+
+sudo rm -rf ~/Library/Preferences/us.zoom.config.plist
+		</string>
+		</dict>
+	</dict>
+	<key>ParentRecipe</key>
+	<string>com.github.homebysix.munki.Zoom</string>
+	<key>ParentRecipeTrustInfo</key>
+	<dict>
+		<key>non_core_processors</key>
+		<dict/>
+		<key>parent_recipes</key>
+		<dict>
+			<key>com.github.hansen-m.download.zoomus</key>
+			<dict>
+				<key>git_hash</key>
+				<string>e0144f1004d97cd322224a7c4dca5e9930876c69</string>
+				<key>path</key>
+				<string>~/Library/AutoPkg/RecipeRepos/com.github.autopkg.hansen-m-recipes/Zoom/Zoom.download.recipe</string>
+				<key>sha256_hash</key>
+				<string>e7da9dc87d05caef44c144b4aeb4ff5f9bb71e0036596201a37e864ac6d4bd12</string>
+			</dict>
+			<key>com.github.homebysix.munki.Zoom</key>
+			<dict>
+				<key>git_hash</key>
+				<string>d1d1f9108b8444d25efb2b03c3f5c9b76c6c28c4</string>
+				<key>path</key>
+				<string>~/Library/AutoPkg/RecipeRepos/com.github.autopkg.homebysix-recipes/Zoom/Zoom.munki.recipe</string>
+				<key>sha256_hash</key>
+				<string>c77bbc1d51843f7e97c2a0ac2854e429af84dcd1abccbaf7c91e8e5497d14ba7</string>
+			</dict>
+			<key>com.github.homebysix.pkg.Zoom</key>
+			<dict>
+				<key>git_hash</key>
+				<string>bc2339c77b88002f6b999ceeb8bd6dd694337bd6</string>
+				<key>path</key>
+				<string>~/Library/AutoPkg/RecipeRepos/com.github.autopkg.homebysix-recipes/Zoom/Zoom.pkg.recipe</string>
+				<key>sha256_hash</key>
+				<string>daa503a774baee60d840c1fe0cbeee98cd30070fd529160fe7bbf0be00d5641b</string>
+			</dict>
+		</dict>
+	</dict>
+</dict>
+</plist>

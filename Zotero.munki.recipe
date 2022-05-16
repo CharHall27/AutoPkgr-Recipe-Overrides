@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Identifier</key>
+	<string>local.munki.Zotero</string>
+	<key>Input</key>
+	<dict>
+		<key>MUNKI_REPO_SUBDIR</key>
+		<string>apps/Zotero</string>
+		<key>NAME</key>
+		<string>Zotero</string>
+		<key>pkginfo</key>
+		<dict>
+			<key>blocking_applications</key>
+			<array>
+				<string>Microsoft Word</string>
+				<string>Zotero</string>
+			</array>
+			<key>catalogs</key>
+			<array>
+				<string>testing</string>
+			</array>
+			<key>category</key>
+			<string>Productivity</string>
+			<key>icon_name</key>
+			<string>zotero-icon.png</string>
+			<key>description</key>
+			<string>Zotero is a free, easy-to-use, open-source tool to help you collect, organize, cite, and share research.</string>
+			<key>developer</key>
+			<string>Center for History and New Media at George Mason University</string>
+			<key>display_name</key>
+			<string>%NAME%</string>
+			<key>name</key>
+			<string>%NAME%</string>
+			<key>postinstall_script</key>
+			<string></string>
+			<key>unattended_install</key>
+			<false/>
+			<key>uninstallable</key>
+			<true/>
+			<key>RestartAction</key>
+			<string>None</string>
+			<key>minimum_os_version</key>
+			<string>10.14</string>
+		</dict>
+	</dict>
+	<key>ParentRecipe</key>
+	<string>com.github.joshua-d-miller.autopkg.munki.zotero</string>
+	<key>ParentRecipeTrustInfo</key>
+	<dict>
+		<key>non_core_processors</key>
+		<dict/>
+		<key>parent_recipes</key>
+		<dict>
+			<key>com.github.joshua-d-miller.autopkg.munki.zotero</key>
+			<dict>
+				<key>git_hash</key>
+				<string>78026742f449538429136f0a32bebf113a2a3c3f</string>
+				<key>path</key>
+				<string>~/Library/AutoPkg/RecipeRepos/com.github.autopkg.joshua-d-miller-recipes/Zotero/Zotero.munki.recipe</string>
+				<key>sha256_hash</key>
+				<string>e2faadce0798cebeb565eef717414e26e85d363b2b91c764d9ff4ef358fff50c</string>
+			</dict>
+			<key>com.github.joshua-d-miller.download.zotero</key>
+			<dict>
+				<key>git_hash</key>
+				<string>1b5e78951596edfb6e61b6a53d8d9dc9e49bab38</string>
+				<key>path</key>
+				<string>~/Library/AutoPkg/RecipeRepos/com.github.autopkg.joshua-d-miller-recipes/Zotero/Zotero.download.recipe</string>
+				<key>sha256_hash</key>
+				<string>3196780f2131002a0f6fa955114195828bc3e6457559f28ff533077c546e8cce</string>
+			</dict>
+		</dict>
+	</dict>
+</dict>
+</plist>
